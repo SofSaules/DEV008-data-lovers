@@ -35,6 +35,8 @@ body {
     background-color: #454545;
 }
 
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -47,11 +49,11 @@ body {
 .dropdowns select {
   border: 1px solid white;
   border-radius: 5px;
-  padding: 6px;
+  padding: 8px;
   color: white;
   background: none;
   outline: none;
-  width: 100%;
+  width: 120px;
   font-size: .5rem;
 }
 
