@@ -35,8 +35,6 @@ body {
     background-color: #454545;
 }
 
-
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -99,6 +97,13 @@ main {
     padding-inline: 1rem;
     align-items: center;
     text-align: center;
+}
+
+.pokemon-tipos{
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 
