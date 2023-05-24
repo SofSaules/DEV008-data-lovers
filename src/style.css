@@ -43,17 +43,27 @@ body {
     padding: 1rem;
   }
 
-.searchbar input,
-.dropdowns select {
+.searchbar input {
   border: 1px solid white;
   border-radius: 5px;
-  padding: 6px;
+  padding: 8px;
   color: white;
   background: none;
   outline: none;
-  width: 100%;
+  width: 140px;
   font-size: .5rem;
 }
+
+.dropdowns select {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+    background: #454545;
+    outline: none;
+    width: 100px;
+    font-size: .5rem;
+  }
 
 main {
     padding: 2rem;
@@ -97,6 +107,13 @@ main {
     padding-inline: 1rem;
     align-items: center;
     text-align: center;
+}
+
+.pokemon-tipos{
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 
