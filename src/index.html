@@ -16,7 +16,7 @@
       </div>
       <div class="dropdowns">
         <select id="typeDropdown" onchange="filterByType()">
-          <option value="">By Types</option>
+          <option value="">By Type</option>
           <option value="bug">Bug</option>
           <option value="dark">Dark</option>
           <option value="dragon">Dragon</option>
@@ -44,49 +44,44 @@
       </div>
     </nav>
 
+    
     <main>
     <div id="todos">
       <div class="pokemon-todos" id="listaPokemon">
-          <div class="pokemon">
-              
+      <!--<div class="pokemon">
               <div class="pokemon-imagen">
                   <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
               </div>
               <div class="pokemon-info">
                   <div class="nombre-contenedor">
-                      <p class="pokemon-id">#025</p>
+                      <p class="pokemon-id">025</p>
                       <h2 class="pokemon-nombre">Pikachu</h2>
                   </div>
                   <div class="pokemon-tipos">
                       <p class="electric tipo">ELECTRIC</p>
                       <p class="fighting tipo">FIGHTING</p>
-                      
                   </div>
-                  
               </div>
-          </div> 
-          <div class="pokemon">
-              
-            <div class="pokemon-imagen">
-                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
-            </div>
-            <div class="pokemon-info">
-                <div class="nombre-contenedor">
-                    <p class="pokemon-id">#025</p>
-                    <h2 class="pokemon-nombre">Pikachu</h2>
-                </div>
-                <div class="pokemon-tipos">
-                    <p class="tipo electric">ELECTRIC</p>
-                    <p class="fighting tipo">FIGHTING</p>
-                </div>
-                
-            </div>
-        </div>
+          </div> -->
       </div>
   </div>
-
 </main>
-    
+
+<!--
+<div class="tarjeta">
+  <figure> <img = class "imageBox" src ="${pokemon.img}"> </figure>
+   <p> ${pokemon.num} </p> 
+   <h2> ${pokemon.name} </h2>   
+  <p> TYPE: ${pokemon.type} </p>
+</div>>
+-->
+
+
+
+
+
+
+<div id="root"></div>
     <script src="main.js" type="module"></script>
   </body>
 </html>
