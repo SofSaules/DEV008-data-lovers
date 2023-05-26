@@ -44,7 +44,7 @@
       </div>
     </nav>
 
-    
+  <!--Página principal-->
     <main>
     <div id="todos">
       <div class="pokemon-todos" id="listaPokemon">
@@ -67,16 +67,68 @@
   </div>
 </main>
 
-<!--
-<div class="tarjeta">
-  <figure> <img = class "imageBox" src ="${pokemon.img}"> </figure>
-   <p> ${pokemon.num} </p> 
-   <h2> ${pokemon.name} </h2>   
-  <p> TYPE: ${pokemon.type} </p>
-</div>>
--->
 
-
+<!--Módulos Pokemon-->
+<main>
+  <div id="modulos" class="pokemonModulos">
+  <!--nombre, numero-->
+    <div class="encabezadoModulo">
+       <h2 class="pokemon-nombre">Pikachu</h2>
+       <p class="pokemon-id">#025</p>
+    </div>
+     <!--Contenedor flex: imagen, tipo, about, H, W-->
+    <div class="containerAbout">
+    <!--imagen-->
+      <div class="lateralIzquierdo">
+        <div class="pokemon-imagen-modulo">
+          <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
+        </div>
+      <!--types-->
+         <div class="pokemon-tipos">
+           <p class="electric tipo">ELECTRIC</p>
+           <p class="fighting tipo">FIGHTING</p>
+         </div>
+      </div>
+<!--about, height, weight-->
+    <div class="details">
+      <div class="parrafo">
+        <p>About</p>
+        <p>Bulbasaur can be seen napping in bright sunlight. There is a seed on its back. 
+          By soaking up the sun's rays, the seed grows progressively larger.</p>
+      </div>
+        <div class="HW">
+          <div>
+            <p class="bold">Height</p>
+            <p>0.71m</p>
+          </div>   
+          <div>
+            <p class="bold">Weight</p>
+            <p>6.9kg</p>
+          </div> 
+        </div>  
+        </div>
+    </div>
+<!--wr-->
+<div class="WR">
+  <!--weaknesses-->
+      <div class="Weaknesses">
+        <p>Weaknesses</p>
+        <div class="W-types"> 
+          <p class="electric tipo">ELECTRIC</p>
+          <p class="fighting tipo">FIGHTING</p>
+        </div>
+      </div>
+  <!--resistencia-->
+      <div class="resistant">
+        <p>Resistant</p>
+        <div class="R-types">
+          <p class="electric tipo">ELECTRIC</p>
+          <p class="fighting tipo">FIGHTING</p>
+     </div>
+    </div>
+    </div>
+  </div>
+</main>
 
 
 
