@@ -3,6 +3,7 @@
 export const example = () => {
   return 'example';
 };
+
 /**
  * funcion generica que puede filtrar lo que quiera
  * la función recibe dos parametros, el primero es un array de objetos(data) y
@@ -13,4 +14,10 @@ export function filterByType(arrayObjeto, elementTypeDelObjeto) {
   // el parametro es un elemento de mi arrayObjeto
   const pokemon = arrayObjeto.filter(objeto => objeto.type.includes(elementTypeDelObjeto));
   return pokemon;
-}//esta función es para el filtro type, entonces no es taaaaaan genérica
+}
+
+//se utilizó el método startsWith() y un or. 
+export const searchPokemonByName = (arrayObjeto, input) => {
+  const pokemon = arrayObjeto.filter(objeto => objeto.name.startsWith(input.toLowerCase()) || objeto.num === input);
+  return pokemon;
+};
