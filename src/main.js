@@ -1,21 +1,23 @@
 import data from './data/pokemon/pokemon.js'; //Trae la base de datos de pokemon
-import { example } from './data.js';  
+import { example,
+filterByType,
+ } from './data.js';
+
 
 const listaPokemon = document.querySelector("#listaPokemon");
 for (let i = 0; i < data.pokemon.length; i++) {  //Se está iterando por la longitud del data.pokemon
-  const poke = data.pokemon[i];  // Cada elemento de mi objeto
+  const poke = data.pokemon[i];  // Aumenta cada elemento de mi objeto
   mostrarPokemon(poke);  // Se crea la función
 }
 
 function mostrarPokemon(poke) {
   let tipos = poke.type.map((typeElement) => `<p class="tipo">${typeElement}</p>`);  //Para mapear los tipos y extraerlos en un arreglo, crear un parrafo con los tipos (typeElement es cada elemento de mi poke.type(es un arreglo))
   tipos = tipos.join('-'); //Para unir los elementos de un arreglo
-
   const div = document.createElement("div");
   div.classList.add("pokemon"); // Se asigna la clase pokemon
   //Para crear un fragmento HTML dentro del div creado
   // Concatenación con literales de plantilla
-  //El ciclo for trae los datos de este div con la const poke. 
+  //El ciclo for trae los datos de este div con la const poke.
   div.innerHTML = `
     <div class="pokemon">
       <div class="pokemon-imagen">
@@ -32,8 +34,29 @@ function mostrarPokemon(poke) {
       </div>
     </div>
   `;
-  listaPokemon.append(div);  //Se inserta en el id lista pokemon 
+  listaPokemon.append(div);  //Se inserta en el id lista pokemon
+
+  /*console.log(poke.stats["base-attack"]) //Ejemplos para usar el console.log
+    console.log(poke.resistant[0]) // Ejemplos para usar el console.log
+    Nota: el parámetro va dentro del console.log*/
 }
 
+
+
+// param1 => {};
+
+//Función que previamente se importó (del data.js) y para usarla se adaptaron a los valores de mi data.pokemon 
+const typeDropdown = document.getElementById('typeDropdown');
+typeDropdown.addEventListener('change', () => { // al evento listener se le da una acción (change) y el otro parámetro es una función. 
+  //En este caso es una arrow function. //arrow function -->  () => { };
+  const selectedType = typeDropdown.value; //sacado del html 
+  const filteredPokemon = filterByType(data.pokemon, selectedType); //la condicion de arriba
+  clearPokemonList(); //cada que cambie de tipo quiero limpiar la búsqueda 
+  filteredPokemon.forEach(poke => mostrarPokemon(poke));
+});
+
+function clearPokemonList() {
+  listaPokemon.innerHTML = '';
+}
 
 console.log(example, data);
