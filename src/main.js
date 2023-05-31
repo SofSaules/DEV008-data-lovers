@@ -1,21 +1,19 @@
-import data from './data/pokemon/pokemon.js'; //Trae la base de datos de pokemon
-import { example,
-  filterByType,
-  searchPokemonByName,
-} from './data.js';
-
+import data from "./data/pokemon/pokemon.js"; //Trae la base de datos de pokemon
+import { filterByType, searchPokemonByName, sortData } from "./data.js";
 
 const pokemonList = data.pokemon;
 
 const listaPokemon = document.querySelector("#listaPokemon");
-for (let i = 0; i < data.pokemon.length; i++) {  //Se está iterando por la longitud del data.pokemon
-  const poke = data.pokemon[i];  // Aumenta cada elemento de mi objeto
-  mostrarPokemon(poke);  // Se crea la función
+for (let i = 0; i < data.pokemon.length; i++) {
+  //Se está iterando por la longitud del data.pokemon
+  const poke = data.pokemon[i]; // Aumenta cada elemento de mi objeto
+  mostrarPokemon(poke); // Se crea la función
 }
 
 function mostrarPokemon(poke) {
-  let tipos = poke.type.map((typeElement) => `<p class="tipo">${typeElement}</p>`);  //Para mapear los tipos y extraerlos en un arreglo, crear un parrafo con los tipos (typeElement es cada elemento de mi poke.type(es un arreglo))
-  tipos = tipos.join('-'); //Para unir los elementos de un arreglo
+  let tipos = poke.type.map(
+    (typeElement) => `<p class="tipo">${typeElement}</p>`); //Para mapear los tipos y extraerlos en un arreglo, crear un parrafo con los tipos (typeElement es cada elemento de mi poke.type(es un arreglo))
+  tipos = tipos.join("-"); //Para unir los elementos de un arreglo
   const div = document.createElement("div");
   div.classList.add("pokemon"); // Se asigna la clase pokemon
   //Para crear un fragmento HTML dentro del div creado
@@ -37,8 +35,7 @@ function mostrarPokemon(poke) {
       </div>
     </div>
   `;
-  listaPokemon.append(div);  //Se inserta en el id lista pokemon
-
+  listaPokemon.append(div); //Se inserta en el id lista pokemon
 
   /*console.log(poke.stats["base-attack"]) //Ejemplos para usar el console.log
     console.log(poke.resistant[0]) // Ejemplos para usar el console.log
@@ -49,31 +46,39 @@ function mostrarPokemon(poke) {
 
 /*Para filtros*/
 
-//Función que previamente se importó (del data.js) y para usarla se adaptaron a los valores de mi data.pokemon 
-const typeDropdown = document.getElementById('typeDropdown');
-typeDropdown.addEventListener('change', () => { // al evento listener se le da una acción (change) y el otro parámetro es una función. 
+//Función que previamente se importó (del data.js) y para usarla se adaptaron a los valores de mi data.pokemon
+const typeDropdown = document.getElementById("typeDropdown");
+typeDropdown.addEventListener("change", () => {
+  // al evento listener se le da una acción (change) y el otro parámetro es una función.
   //En este caso es una arrow function. //arrow function -->  () => { };
-  const selectedType = typeDropdown.value; //sacado del html 
-  const filteredPokemon = filterByType(data.pokemon, selectedType); //la condicion de arriba
-  clearPokemonList(); //cada que cambie de tipo quiero limpiar la búsqueda 
-  filteredPokemon.forEach(poke => mostrarPokemon(poke));
+  const selectedType = typeDropdown.value; //sacado del html
+  const filteredPokemon = filterByType(pokemonList, selectedType); //la condicion de arriba
+  clearPokemonList(); //cada que cambie de tipo quiero limpiar la búsqueda
+  filteredPokemon.forEach((poke) => mostrarPokemon(poke));
 });
 function clearPokemonList() {
-  listaPokemon.innerHTML = '';
+  listaPokemon.innerHTML = "";
 }
 
 //Para la búsqueda de la searchbar
-
-const inputSearch = document.getElementById('searchbar'); //Se obtiene el texto del input
-inputSearch.addEventListener('input', () => { //se agrega un evento con la acción "input" u una arrow function
+const inputSearch = document.getElementById("searchbar"); //Se obtiene el texto del input
+inputSearch.addEventListener("input", () => {
+  //se agrega un evento con la acción "input" y una arrow function
   const searchText = inputSearch.value.toLowerCase(); //convierte el texto a minúsculas
   const searchPoke = searchPokemonByName(pokemonList, searchText); //Se declara la función "searchPokemonByName()"
-
   clearPokemonList(); // Limpia la búsqueda
-  searchPoke.forEach(pokemonList => mostrarPokemon(pokemonList));
+  searchPoke.forEach((pokemonList) => mostrarPokemon(pokemonList));
+});
 
+//Para el método sort
+const sortDropdown = document.getElementById("sortDropdown");
+sortDropdown.addEventListener("change", () => {
+  const selectedSort = sortDropdown.value;
+  const sortPokemon = sortData(pokemonList, selectedSort);
+  clearPokemonList();
+  sortPokemon.forEach(pokemon => mostrarPokemon(pokemon));
+  /*console.log(sortPokemon)*/
 });
 
 
-
-console.log(example, data);
+console.log(data);
