@@ -145,6 +145,12 @@ main {
     text-transform: initial;
 }
 
+.lateralIzquierdo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .pokemon-imagen-modulo{
     padding-inline: 1rem;
     display: flex;
