@@ -15,8 +15,8 @@
         <input id="searchbar" type="text" name="search" placeholder="Pokemon by name or number." />
       </div>
       <div class="dropdowns">
-        <select id="typeDropdown" onchange="filterByType()">
-          <option value="">By Type</option>
+        <select id="typeDropdown">
+          <option  selected value="default">Type </option>
           <option value="bug">Bug</option>
           <option value="dark">Dark</option>
           <option value="dragon">Dragon</option>
@@ -37,9 +37,13 @@
           <option value="water">Water</option>
     
         </select>
-        <select id="sortDropdown" onchange="sortPokemon()">
-          <option value="asc">Sort Ascending</option>
-          <option value="desc">Sort Descending</option>
+
+        <select id="sortDropdown">
+          <option selected value="default">Sort </option>
+          <option value="asc">Sort Ascending by Name</option>
+          <option value="desc">Sort Descending by Name</option>
+          <option value="numAsc">Sort Ascending by Number</option>
+          <option value="numDesc">Sort Descending by Number</option>
         </select>
       </div>
     </nav>
