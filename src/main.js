@@ -37,10 +37,12 @@ function mostrarPokemon(poke) {
   `;
   listaPokemon.append(div); //Se inserta en el id lista pokemon
 
+  div.addEventListener("click", () => mostrarModal(poke));
+}
   /*console.log(poke.stats["base-attack"]) //Ejemplos para usar el console.log
     console.log(poke.resistant[0]) // Ejemplos para usar el console.log
     Nota: el parámetro va dentro del console.log*/
-}
+
 
 /*addEventListener(accion, funcion )*/
 
@@ -81,6 +83,7 @@ sortDropdown.addEventListener("change", () => {
 });
 
 //Ventana modal
+
 const modal = document.querySelector("#modulos");
 for (let i = 0; i < data.pokemon.length; i++) {
   const poke = data.pokemon[i];
@@ -146,7 +149,10 @@ function showPokemon(poke){
 
   modal.append(div); 
 
-}
+};
+
+
+
 
 
 console.log(data);
