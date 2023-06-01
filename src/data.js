@@ -10,18 +10,14 @@ export function filterByType(arrayObj, elementTypeDelObj) {
     obj.type.includes(elementTypeDelObj)
   );
   return pokemon;
-}
-
-//se utilizó el método startsWith() y un or.
+}//se utilizó el método startsWith() y un or.
 export const searchPokemonByName = (arrayObj, input) => {
   const pokemon = arrayObj.filter(
     (obj) =>
       obj.name.startsWith(input.toLowerCase()) || obj.num === input
   );
   return pokemon;
-};
-
-//Sort
+};//Sort
 /**
  * Función para ordenar el arrayObj por diferentes criterios.
  * La función recibe dos parámetros: arrayObj (array de objetos) y orderBy (tipo de ordenamiento).
