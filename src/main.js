@@ -38,7 +38,7 @@ function mostrarPokemon(poke) {
   /*console.log(poke.stats["base-attack"]) //Ejemplos para usar el console.log
     console.log(poke.resistant[0]) // Ejemplos para usar el console.log
     Nota: el parámetro va dentro del console.log*/
-}
+
 
 /*addEventListener(accion, funcion )*/
 /*Para filtros*/
