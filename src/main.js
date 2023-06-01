@@ -1,15 +1,12 @@
 import data from "./data/pokemon/pokemon.js"; //Trae la base de datos de pokemon
 import { filterByType, searchPokemonByName, sortData } from "./data.js";
-
 const pokemonList = data.pokemon;
-
 const listaPokemon = document.querySelector("#listaPokemon");
 for (let i = 0; i < data.pokemon.length; i++) {
   //Se está iterando por la longitud del data.pokemon
   const poke = data.pokemon[i]; // Aumenta cada elemento de mi objeto
   mostrarPokemon(poke); // Se crea la función
 }
-
 function mostrarPokemon(poke) {
   let tipos = poke.type.map(
     (typeElement) => `<p class="tipo">${typeElement}</p>`); //Para mapear los tipos y extraerlos en un arreglo, crear un parrafo con los tipos (typeElement es cada elemento de mi poke.type(es un arreglo))
@@ -36,18 +33,15 @@ function mostrarPokemon(poke) {
     </div>
   `;
   listaPokemon.append(div); //Se inserta en el id lista pokemon
-
   div.addEventListener("click", () => mostrarModal(poke));
 }
   /*console.log(poke.stats["base-attack"]) //Ejemplos para usar el console.log
     console.log(poke.resistant[0]) // Ejemplos para usar el console.log
     Nota: el parámetro va dentro del console.log*/
-
+}
 
 /*addEventListener(accion, funcion )*/
-
 /*Para filtros*/
-
 //Función que previamente se importó (del data.js) y para usarla se adaptaron a los valores de mi data.pokemon
 const typeDropdown = document.getElementById("typeDropdown");
 typeDropdown.addEventListener("change", () => {
@@ -61,7 +55,6 @@ typeDropdown.addEventListener("change", () => {
 function clearPokemonList() {
   listaPokemon.innerHTML = "";
 }
-
 //Para la búsqueda de la searchbar
 const inputSearch = document.getElementById("searchbar"); //Se obtiene el texto del input
 inputSearch.addEventListener("input", () => {
@@ -71,7 +64,6 @@ inputSearch.addEventListener("input", () => {
   clearPokemonList(); // Limpia la búsqueda
   searchPoke.forEach((pokemonList) => mostrarPokemon(pokemonList));
 });
-
 //Para el método sort
 const sortDropdown = document.getElementById("sortDropdown");
 sortDropdown.addEventListener("change", () => {
@@ -83,7 +75,6 @@ sortDropdown.addEventListener("change", () => {
 });
 
 //Ventana modal
-
 const modal = document.querySelector("#modulos");
 for (let i = 0; i < data.pokemon.length; i++) {
   const poke = data.pokemon[i];
@@ -149,10 +140,7 @@ function showPokemon(poke){
 
   modal.append(div); 
 
-};
-
-
-
+}
 
 
 console.log(data);
