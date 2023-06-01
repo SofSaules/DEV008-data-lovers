@@ -1,3 +1,4 @@
+//COMENTARIO
 /**
  * funcion generica que puede filtrar lo que quiera
  * la función recibe dos parametros, el primero es un array de objetos(data) y
