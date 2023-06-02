@@ -1,6 +1,30 @@
 import data from "./data/pokemon/pokemon.js"; //Trae la base de datos de pokemon
 import { filterByType, searchPokemonByName, sortData } from "./data.js";
 const pokemonList = data.pokemon;
+
+const tipoColors = {
+  normal: getComputedStyle(document.documentElement).getPropertyValue('--type-normal'),
+  fire: getComputedStyle(document.documentElement).getPropertyValue('--type-fire'),
+  water: getComputedStyle(document.documentElement).getPropertyValue('--type-water'),
+  grass: getComputedStyle(document.documentElement).getPropertyValue('--type-grass'),
+  electric: getComputedStyle(document.documentElement).getPropertyValue('--type-electric'),
+  ice: getComputedStyle(document.documentElement).getPropertyValue('--type-ice'),
+  fighting: getComputedStyle(document.documentElement).getPropertyValue('--type-fighting'),
+  poison: getComputedStyle(document.documentElement).getPropertyValue('--type-poison'),
+  ground: getComputedStyle(document.documentElement).getPropertyValue('--type-ground'),
+  flying: getComputedStyle(document.documentElement).getPropertyValue('--type-flying'),
+  psychic: getComputedStyle(document.documentElement).getPropertyValue('--type-psychic'),
+  bug: getComputedStyle(document.documentElement).getPropertyValue('--type-bug'),
+  rock: getComputedStyle(document.documentElement).getPropertyValue('--type-rock'),
+  ghost: getComputedStyle(document.documentElement).getPropertyValue('--type-ghost'),
+  dark: getComputedStyle(document.documentElement).getPropertyValue('--type-dark'),
+  dragon: getComputedStyle(document.documentElement).getPropertyValue('--type-dragon'),
+  steel: getComputedStyle(document.documentElement).getPropertyValue('--type-steel'),
+  fairy: getComputedStyle(document.documentElement).getPropertyValue('--type-fairy')
+};
+
+
+
 const listaPokemon = document.querySelector("#listaPokemon");
 for (let i = 0; i < data.pokemon.length; i++) {
   //Se está iterando por la longitud del data.pokemon
@@ -8,8 +32,7 @@ for (let i = 0; i < data.pokemon.length; i++) {
   mostrarPokemon(poke); // Se crea la función
 }
 function mostrarPokemon(poke) {
-  let tipos = poke.type.map(
-    (typeElement) => `<p class="tipo">${typeElement}</p>`); //Para mapear los tipos y extraerlos en un arreglo, crear un parrafo con los tipos (typeElement es cada elemento de mi poke.type(es un arreglo))
+  let tipos = poke.type.map((typeElement) => `<p class="tipo" style="background-color: ${tipoColors[typeElement]};">${typeElement}</p>`); //Para mapear los tipos y extraerlos en un arreglo, crear un parrafo con los tipos (typeElement es cada elemento de mi poke.type(es un arreglo))
   tipos = tipos.join("-"); //Para unir los elementos de un arreglo
   const div = document.createElement("div");
   div.classList.add("pokemon"); // Se asigna la clase pokemon
@@ -89,7 +112,7 @@ function mostrarModal(poke) {
             <img src="${poke.img}" alt="Pokemon ${poke.name}">
           </div>
           <div class="pokemon-tipos">
-            ${poke.type.map((type) => `<p class="tipo">${type}</p>`).join("")}
+            ${poke.type.map((typeElement) => `<p class="tipo" style="background-color: ${tipoColors[typeElement]};">${typeElement}</p>`).join("")}
           </div>
         </div>
         <div class="details">

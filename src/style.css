@@ -147,7 +147,7 @@ main {
 .pokemonModulos {
     position: relative;
     background-color: #a4a0a0;;
-    width: 60%;
+    width: 50%;
     border-radius: 1rem;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, .4);
     text-transform: uppercase;
