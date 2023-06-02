@@ -85,6 +85,14 @@ inputSearch.addEventListener("input", () => {
   clearPokemonList(); // Limpia la búsqueda
   searchPoke.forEach((pokemonList) => mostrarPokemon(pokemonList));
 });
+
+//Para el botón reset
+
+var resetButton = document.getElementById('reset-button');
+resetButton.addEventListener('click', function() {
+  location.reload();
+});
+
 //Para el método sort
 const sortDropdown = document.getElementById("sortDropdown");
 sortDropdown.addEventListener("change", () => {

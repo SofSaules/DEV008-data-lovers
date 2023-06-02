@@ -51,8 +51,19 @@ body {
   background: none;
   outline: none;
   width: 140px;
-  font-size: .5rem;
+  font-size: .8rem;
 }
+
+.reset-button {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 8px;
+    color: white;
+    background: #3A9494;
+    outline: none;
+    width: 100px;
+    font-size: .8rem;
+  }
 
 .dropdowns select {
     border: 1px solid white;
@@ -62,7 +73,11 @@ body {
     background: #454545;
     outline: none;
     width: 100px;
-    font-size: .5rem;
+    font-size: .8rem;
+  }
+
+  select option:first-child {
+    display: none;
   }
 
 main {
