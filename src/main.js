@@ -75,8 +75,8 @@ sortDropdown.addEventListener("change", () => {
 
 //ventana modal opcionB:
 function mostrarModal(poke) {
-  const modal = document.getElementById("modalTodos");
-  modal.innerHTML = `
+  const modal = document.getElementById("modal-content");
+  modal.innerHTML = ` 
     <div class="pokemonModulos">
       <span class="close">&times;</span>
       <div class="encabezadoModulo">
@@ -129,7 +129,7 @@ function mostrarModal(poke) {
   closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
   });
-  modal.style.display = "block";
+  modal.style.display = "flex";
 }
 
 
