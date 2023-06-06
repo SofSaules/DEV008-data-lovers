@@ -22,6 +22,80 @@
     --type-fairy: #E69EAC;
 }
 
+.normal{
+    background-color: var(--type-normal);
+}
+
+.fire{
+    background-color: var(--type-fire);
+}
+
+.water{
+    background-color: var(--type-water);
+}
+
+.grass{
+    background-color: var(--type-grass);
+}
+
+.electric{
+    background-color: var(--type-electric);
+}
+
+.ice{
+    background-color: var(--type-ice);
+}
+
+.fighting{
+    background-color: var(--type-fighting);
+}
+
+.poison{
+    background-color: var(--type-poison);
+}
+
+.ground{
+    background-color: var(--type-ground);
+}
+
+.flying{
+    background-color: var(--type-flying);
+}
+
+.psychic{
+    background-color: var(--type-psychic);
+}
+
+.bug{
+    background-color: var(--type-bug);
+}
+
+.rock{
+    background-color: var(--type-rock);
+}
+
+.ghost{
+    background-color: var(--type-ghost);
+}
+
+.dark{
+    background-color: var(--type-dark);
+}
+
+.dragon{
+    background-color: var(--type-dragon);
+}
+
+.steel{
+    background-color: var(--type-steel);
+}
+
+.fairy{
+    background-color: var(--type-fairy);
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -89,7 +163,7 @@ main {
 
 .pokemon-todos {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     gap: 2rem;
     max-width: 1100px;
     padding: 1em 1em;

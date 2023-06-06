@@ -2,28 +2,6 @@ import data from "./data/pokemon/pokemon.js"; //Trae la base de datos de pokemon
 import { filterByType, searchPokemonByName, sortData } from "./data.js";
 const pokemonList = data.pokemon;
 
-const tipoColors = {
-  normal: getComputedStyle(document.documentElement).getPropertyValue('--type-normal'),
-  fire: getComputedStyle(document.documentElement).getPropertyValue('--type-fire'),
-  water: getComputedStyle(document.documentElement).getPropertyValue('--type-water'),
-  grass: getComputedStyle(document.documentElement).getPropertyValue('--type-grass'),
-  electric: getComputedStyle(document.documentElement).getPropertyValue('--type-electric'),
-  ice: getComputedStyle(document.documentElement).getPropertyValue('--type-ice'),
-  fighting: getComputedStyle(document.documentElement).getPropertyValue('--type-fighting'),
-  poison: getComputedStyle(document.documentElement).getPropertyValue('--type-poison'),
-  ground: getComputedStyle(document.documentElement).getPropertyValue('--type-ground'),
-  flying: getComputedStyle(document.documentElement).getPropertyValue('--type-flying'),
-  psychic: getComputedStyle(document.documentElement).getPropertyValue('--type-psychic'),
-  bug: getComputedStyle(document.documentElement).getPropertyValue('--type-bug'),
-  rock: getComputedStyle(document.documentElement).getPropertyValue('--type-rock'),
-  ghost: getComputedStyle(document.documentElement).getPropertyValue('--type-ghost'),
-  dark: getComputedStyle(document.documentElement).getPropertyValue('--type-dark'),
-  dragon: getComputedStyle(document.documentElement).getPropertyValue('--type-dragon'),
-  steel: getComputedStyle(document.documentElement).getPropertyValue('--type-steel'),
-  fairy: getComputedStyle(document.documentElement).getPropertyValue('--type-fairy')
-};
-
-
 
 const listaPokemon = document.querySelector("#listaPokemon");
 for (let i = 0; i < data.pokemon.length; i++) {
@@ -32,7 +10,7 @@ for (let i = 0; i < data.pokemon.length; i++) {
   mostrarPokemon(poke); // Se crea la función
 }
 function mostrarPokemon(poke) {
-  let tipos = poke.type.map((typeElement) => `<p class="tipo" style="background-color: ${tipoColors[typeElement]};">${typeElement}</p>`); //Para mapear los tipos y extraerlos en un arreglo, crear un parrafo con los tipos (typeElement es cada elemento de mi poke.type(es un arreglo))
+  let tipos = poke.type.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`); //Para mapear los tipos y extraerlos en un arreglo, crear un parrafo con los tipos (typeElement es cada elemento de mi poke.type(es un arreglo))
   tipos = tipos.join("-"); //Para unir los elementos de un arreglo
   const div = document.createElement("div");
   div.classList.add("pokemon"); // Se asigna la clase pokemon
@@ -58,7 +36,7 @@ function mostrarPokemon(poke) {
   listaPokemon.append(div); //Se inserta en el id lista pokemon
   div.addEventListener("click", () => mostrarModal(poke));
 }
-  /*console.log(poke.stats["base-attack"]) //Ejemplos para usar el console.log
+/*console.log(poke.stats["base-attack"]) //Ejemplos para usar el console.log
     console.log(poke.resistant[0]) // Ejemplos para usar el console.log
     Nota: el parámetro va dentro del console.log*/
 /*addEventListener(accion, funcion )*/
@@ -88,7 +66,7 @@ inputSearch.addEventListener("input", () => {
 
 //Para el botón reset
 
-var resetButton = document.getElementById('reset-button');
+const resetButton = document.getElementById('reset-button');
 resetButton.addEventListener('click', function() {
   location.reload();
 });
@@ -120,7 +98,7 @@ function mostrarModal(poke) {
             <img src="${poke.img}" alt="Pokemon ${poke.name}">
           </div>
           <div class="pokemon-tipos">
-            ${poke.type.map((typeElement) => `<p class="tipo" style="background-color: ${tipoColors[typeElement]};">${typeElement}</p>`).join("")}
+            ${poke.type.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`).join("")}
           </div>
         </div>
         <div class="details">
@@ -144,13 +122,14 @@ function mostrarModal(poke) {
         <div class="Weaknesses">
           <p>Weaknesses</p>
           <div class="W-types">
-            ${poke.weaknesses.map((weakness) => `<p>${weakness}</p>`).join("")}
+
+            ${poke.weaknesses.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`).join("")}
           </div>
         </div>
         <div class="resistant">
           <p>Resistant</p>
           <div class="R-types">
-            ${poke.resistant.map((resistant) => `<p>${resistant}</p>`).join("")}
+            ${poke.resistant.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`).join("")}
           </div>
         </div>
       </div>

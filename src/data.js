@@ -1,4 +1,3 @@
-//COMENTARIO
 /**
  * funcion generica que puede filtrar lo que quiera
  * la función recibe dos parametros, el primero es un array de objetos(data) y
@@ -17,7 +16,8 @@ export function filterByType(arrayObj, elementTypeDelObj) {
 export const searchPokemonByName = (arrayObj, input) => {
   const pokemon = arrayObj.filter(
     (obj) =>
-      obj.name.startsWith(input.toLowerCase()) || obj.num === input
+      obj.name.startsWith(input.toLowerCase().trim()) ||  obj.num.includes(input.trim()) 
+
   );
   return pokemon;
 };
@@ -30,7 +30,7 @@ export const searchPokemonByName = (arrayObj, input) => {
  */
 export const sortData = (data, options) => {
   /*console.log("--->", data.map((e) => e.num));*/
-  let newPokemons;
+  let newPokemons = 0;
   switch (options) {
   case "asc":
     newPokemons = data.sort((a, b) => a.name.localeCompare(b.name));
