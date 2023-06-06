@@ -248,6 +248,11 @@ main {
     padding: 1em;
 }
 
+span.close {
+    font-size: 3vw; /* El tamaño del ícono será el 3% del ancho de la ventana */
+    padding: 1em; /* El padding será igual a 1 vez el tamaño de la fuente actual */
+  }
+
 .containerAbout{
     display: flex;
     border-radius: 1rem;

@@ -87,7 +87,7 @@ function mostrarModal(poke) {
   const modal = document.getElementById("modal-content");
   modal.innerHTML = ` 
     <div class="pokemonModulos">
-      <span class="close">&times;</span>
+    <span class="close"><i class="fas fa-times"></i></span>
       <div class="encabezadoModulo">
         <h2 class="pokemon-nombre">${poke.name}</h2>
         <p class="pokemon-id">#${poke.num}</p>
