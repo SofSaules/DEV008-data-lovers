@@ -103,7 +103,7 @@ function mostrarModal(poke) {
         </div>
         <div class="details">
           <div class="parrafo">
-            <p>About</p>
+            <p class="bold">About</p>
             <p>${poke.about}</p>
           </div>
           <div class="HW">
@@ -120,14 +120,14 @@ function mostrarModal(poke) {
       </div>
       <div class="WR">
         <div class="Weaknesses">
-          <p>Weaknesses</p>
+          <p class="bold">Weaknesses</p>
           <div class="W-types">
 
             ${poke.weaknesses.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`).join("")}
           </div>
         </div>
         <div class="resistant">
-          <p>Resistant</p>
+          <p class="bold">Resistant</p>
           <div class="R-types">
             ${poke.resistant.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`).join("")}
           </div>
