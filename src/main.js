@@ -87,7 +87,7 @@ function mostrarModal(poke) {
   const modal = document.getElementById("modal-content");
   modal.innerHTML = ` 
     <div class="pokemonModulos">
-      <span class="close">&times;</span>
+    <span class="close"><i class="fas fa-times"></i></span>
       <div class="encabezadoModulo">
         <h2 class="pokemon-nombre">${poke.name}</h2>
         <p class="pokemon-id">#${poke.num}</p>
@@ -103,7 +103,7 @@ function mostrarModal(poke) {
         </div>
         <div class="details">
           <div class="parrafo">
-            <p>About</p>
+            <p class="bold">About</p>
             <p>${poke.about}</p>
           </div>
           <div class="HW">
@@ -120,14 +120,14 @@ function mostrarModal(poke) {
       </div>
       <div class="WR">
         <div class="Weaknesses">
-          <p>Weaknesses</p>
+          <p class="bold">Weaknesses</p>
           <div class="W-types">
 
             ${poke.weaknesses.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`).join("")}
           </div>
         </div>
         <div class="resistant">
-          <p>Resistant</p>
+          <p class="bold">Resistant</p>
           <div class="R-types">
             ${poke.resistant.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`).join("")}
           </div>

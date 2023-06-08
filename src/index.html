@@ -6,12 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Lovers</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
+
+    <header>
+      <div class="headerPoke">
+        <h1>POKÉDEX </h1>
+       <h6>Gotta catch ´em all</h6>
+         <div class="headerImg">
+       <img src="img/poke.png">
+         </div>
+      </div>
+    </header>
+
+
     <nav class="navbar">
       <div class="searchbar">
-        <input id="searchbar" type="text" name="search" placeholder="Pokemon by name or number." />
-        <button id="reset-button" class="reset-button">Reset</button>
+        <input id="searchbar" type="text" name="search" placeholder="Pokemon by name or number" />
       </div>
       <div class="dropdowns">
         <select id="typeDropdown">
@@ -42,6 +54,7 @@
           <option value="numAsc">Sort Ascending by Number</option>
           <option value="numDesc">Sort Descending by Number</option>
         </select>
+        <button id="reset-button" class="reset-button">Reset</button>
       </div>
     </nav>
   <!--Página principal-->
@@ -77,6 +90,13 @@
 </div>
 </div>
 </section>
+
+<footer>
+  <div class="copyright">
+    <h3 class="bold">© Copyright by Linda Robles Ft Sofía Saulés - 2023</h3>
+    <h5>This prototype is intended as a Pokédex guide for current and new Pokémon Go players who want to be a Pokémon master</h5>
+  </div>
+</footer>
 
 <div id="root"></div>
     <script src="main.js" type="module"></script>
