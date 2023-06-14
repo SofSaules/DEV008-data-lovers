@@ -14,10 +14,11 @@ export function filterByType(arrayObj, elementTypeDelObj) {
 export const searchPokemonByName = (arrayObj, input) => {
   const pokemon = arrayObj.filter(
     (obj) =>
-      obj.name.startsWith(input.toLowerCase()) || obj.num === input
+      obj.name.startsWith(input.toLowerCase().trim()) ||  obj.num.includes(input.trim())
   );
   return pokemon;
 };
+
 //Sort
 /**
  * Función para ordenar el arrayObj por diferentes criterios.

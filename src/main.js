@@ -1,9 +1,8 @@
 import data from "./data/pokemon/pokemon.js"; //Trae la base de datos de pokemon
 import { filterByType, searchPokemonByName, sortData, computeTypePercentage } from "./data.js";
 
-/*
-import Chart from 'chart.js/auto'
-*/
+/*import Chart from 'chart.js/auto'*/
+
 
 const pokemonList = data.pokemon;
 const listaPokemon = document.querySelector("#listaPokemon");
