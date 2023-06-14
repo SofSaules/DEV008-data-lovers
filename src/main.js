@@ -144,12 +144,6 @@ function mostrarModal(poke) {
   modal.style.display = "flex";
 }
 
-nuevoGrafico(
-  document.getElementById('typesGraph'),
-  {
-    type:
-  }
-)
 
 
 
