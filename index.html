@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Lovers</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="headerPoke">
+        <h1>POKÉDEX</h1>
+        <h6>Gotta catch 'em all</h6>
+        <div class="headerImg">
+          <img src="img/poke.png">
+        </div>
+      </div>
+    </header>
+    <nav class="navbar">
+      <div class="searchbar">
+        <input id="searchbar" type="text" name="search" placeholder="Pokemon by name or number" />
+      </div>
+      <div class="dropdowns">
+        <select id="typeDropdown">
+          <option selected value="default">Type</option>
+          <option value="bug">Bug</option>
+          <option value="dark">Dark</option>
+          <option value="dragon">Dragon</option>
+          <option value="electric">Electric</option>
+          <option value="fairy">Fairy</option>
+          <option value="fighting">Fighting</option>
+          <option value="fire">Fire</option>
+          <option value="flying">Flying</option>
+          <option value="ghost">Ghost</option>
+          <option value="normal">Normal</option>
+          <option value="grass">Grass</option>
+          <option value="ground">Ground</option>
+          <option value="ice">Ice</option>
+          <option value="poison">Poison</option>
+          <option value="psychic">Psychic</option>
+          <option value="rock">Rock</option>
+          <option value="steel">Steel</option>
+          <option value="water">Water</option>
+        </select>
+        <select id="sortDropdown">
+          <option selected value="default">Sort</option>
+          <option value="asc">Sort Ascending by Name</option>
+          <option value="desc">Sort Descending by Name</option>
+          <option value="numAsc">Sort Ascending by Number</option>
+          <option value="numDesc">Sort Descending by Number</option>
+        </select>
+        <button id="reset-button" class="reset-button">Reset</button>
+        <button id="show-graph" class="data-button">Show data</button>
+      </div>
+    </nav>
+    <main>
+      <div id="graphContainer" style="width: 900px;"><canvas id="typesGraph"></canvas>
+      </div>
+      <div id="todos">
+        <div class="pokemon-todos" id="listaPokemon"><!-- Contenido generado dinámicamente --> </div>
+      </div>
+    </main>
+    <section>
+      <div id="modalTodos" class="modalTodos">
+        <div class="modal-content" id="modal-content">
+          <div id="modulos" class="pokemonModulos"></div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="copyright">
+        <h3 class="bold">© Copyright by Linda Robles Ft. Sofía Saulés - 2023</h3>
+        <h5>This prototype is intended as a Pokédex guide for current and new Pokémon Go players who want to be a Pokémon master</h5>
+      </div>
+    </footer>
+    <div id="root"></div>
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
