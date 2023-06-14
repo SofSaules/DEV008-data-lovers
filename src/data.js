@@ -1,8 +1,7 @@
-/**
- * funcion generica que puede filtrar lo que quiera
+/*funcion generica que puede filtrar lo que quiera
  * la función recibe dos parametros, el primero es un array de objetos(data) y
  * el segundo un tipo de elemento (condicion)
- */
+*/
 export function filterByType(arrayObj, elementTypeDelObj) {
   //filter() regresa un arreglo y recibe una función. Antes de la flechita es el parametro recibido, después es el cuerpo de mi función
   // el parametro es un elemento de mi arrayObjeto
@@ -11,17 +10,14 @@ export function filterByType(arrayObj, elementTypeDelObj) {
   );
   return pokemon;
 }
-
 //se utilizó el método startsWith() y un or.
 export const searchPokemonByName = (arrayObj, input) => {
   const pokemon = arrayObj.filter(
     (obj) =>
-      obj.name.startsWith(input.toLowerCase().trim()) ||  obj.num.includes(input.trim()) 
-
+      obj.name.startsWith(input.toLowerCase()) || obj.num === input
   );
   return pokemon;
 };
-
 //Sort
 /**
  * Función para ordenar el arrayObj por diferentes criterios.
@@ -30,7 +26,7 @@ export const searchPokemonByName = (arrayObj, input) => {
  */
 export const sortData = (data, options) => {
   /*console.log("--->", data.map((e) => e.num));*/
-  let newPokemons = 0;
+  let newPokemons;
   switch (options) {
   case "asc":
     newPokemons = data.sort((a, b) => a.name.localeCompare(b.name));
@@ -50,4 +46,8 @@ export const sortData = (data, options) => {
     return data;
   }
 };
-
+export function computeTypePercentage(pokemonList, type) {
+  const filteredPokemon = pokemonList.filter(p => p.type.includes(type));
+  const percentage = (filteredPokemon.length / pokemonList.length * 100).toFixed(2);
+  return percentage;
+}

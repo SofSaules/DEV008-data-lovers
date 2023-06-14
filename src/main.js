@@ -1,8 +1,11 @@
 import data from "./data/pokemon/pokemon.js"; //Trae la base de datos de pokemon
-import { filterByType, searchPokemonByName, sortData } from "./data.js";
+import { filterByType, searchPokemonByName, sortData, computeTypePercentage } from "./data.js";
+
+/*
+import Chart from 'chart.js/auto'
+*/
+
 const pokemonList = data.pokemon;
-
-
 const listaPokemon = document.querySelector("#listaPokemon");
 for (let i = 0; i < data.pokemon.length; i++) {
   //Se está iterando por la longitud del data.pokemon
@@ -52,7 +55,7 @@ typeDropdown.addEventListener("change", () => {
   filteredPokemon.forEach((poke) => mostrarPokemon(poke));
 });
 function clearPokemonList() {
-  listaPokemon.innerHTML = "";
+  listaPokemon.innerHTML = ""
 }
 //Para la búsqueda de la searchbar
 const inputSearch = document.getElementById("searchbar"); //Se obtiene el texto del input
@@ -62,16 +65,11 @@ inputSearch.addEventListener("input", () => {
   const searchPoke = searchPokemonByName(pokemonList, searchText); //Se declara la función "searchPokemonByName()"
   clearPokemonList(); // Limpia la búsqueda
   searchPoke.forEach((pokemonList) => mostrarPokemon(pokemonList));
-});
-
-//Para el botón reset
-
+});//Para el botón reset
 const resetButton = document.getElementById('reset-button');
 resetButton.addEventListener('click', function() {
   location.reload();
-});
-
-//Para el método sort
+});//Para el método sort
 const sortDropdown = document.getElementById("sortDropdown");
 sortDropdown.addEventListener("change", () => {
   const selectedSort = sortDropdown.value;
@@ -79,13 +77,10 @@ sortDropdown.addEventListener("change", () => {
   clearPokemonList();
   sortPokemon.forEach(pokemon => mostrarPokemon(pokemon));
   /*console.log(sortPokemon)*/
-});
-
-
-//ventana modal opcionB:
+});//ventana modal opcionB:
 function mostrarModal(poke) {
   const modal = document.getElementById("modal-content");
-  modal.innerHTML = ` 
+  modal.innerHTML = `
     <div class="pokemonModulos">
     <span class="close"><i class="fas fa-times"></i></span>
       <div class="encabezadoModulo">
@@ -121,9 +116,7 @@ function mostrarModal(poke) {
       <div class="WR">
         <div class="Weaknesses">
           <p class="bold">Weaknesses</p>
-          <div class="W-types">
-
-            ${poke.weaknesses.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`).join("")}
+          <div class="W-types">            ${poke.weaknesses.map((typeElement) => `<p class="tipo ${typeElement}">${typeElement}</p>`).join("")}
           </div>
         </div>
         <div class="resistant">
@@ -141,6 +134,110 @@ function mostrarModal(poke) {
   });
   modal.style.display = "flex";
 }
+function nuevoGrafico(chartElement, data) {
+  new Chart (chartElement, {
+    type: "bar",
+    data: {
+      labels: [
+        "Dragon",
+        "Poison",
+        "Flying",
+        "Bug",
+        "Normal",
+        "Ground",
+        "Psychic",
+        "Ice",
+        "Ghost",
+        "Grass",
+        "Fire",
+        "Water",
+        "Electric",
+        "Fighting",
+        "Rock"
+      ],
+      datasets: [
+        {
+          label: "Percentage",
+          data: data,
+          backgroundColor: [
+            "#7038F8",
+            "#A43E9E",
+            "#A891EC",
+            "#A7B723",
+            "#AAA67F",
+            "#DEC16B",
+            "#FB5584",
+            "#9AD6DF",
+            "#70559B",
+            "#75574C",
+            "#F57D31",
+            "#6493EB",
+            "#F9CF30",
+            "#C12239",
+            "#B69E31"
+          ]
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      title: {
+        display: true,
+        text: 'Percentage of pokemon by type',
+        fontSize: 30,
+        padding: 10,
+        fontColor: '#F4F5F6',
+      },
+      legend: {
+        labels: {
+          fontFamily: 'Lato',
+          fontColor: '#F4F5F6',
+        }
+      },
+      scales: {
+        x: {
+          ticks: {
+            color: '#F4F5F6' // Cambia el color de la fuente de las etiquetas en el eje X
+          }
+        },
+        y: {
+          ticks: {
+            color: '#F4F5F6' // Cambia el color de la fuente de las etiquetas en el eje Y
+          }
+        }
+      }
+    }
+  });
+}
+// Código para calcular el porcentaje de cada tipo de Pokémon referenciando data.js
+const typePercentages = [
+  computeTypePercentage(pokemonList, "dragon"),
+  computeTypePercentage(pokemonList, "poison"),
+  computeTypePercentage(pokemonList, "flying"),
+  computeTypePercentage(pokemonList, "bug"),
+  computeTypePercentage(pokemonList, "normal"),
+  computeTypePercentage(pokemonList, "ground"),
+  computeTypePercentage(pokemonList, "psychic"),
+  computeTypePercentage(pokemonList, "ice"),
+  computeTypePercentage(pokemonList, "ghost"),
+  computeTypePercentage(pokemonList, "grass"),
+  computeTypePercentage(pokemonList, "fire"),
+  computeTypePercentage(pokemonList, "water"),
+  computeTypePercentage(pokemonList, "electric"),
+  computeTypePercentage(pokemonList, "fighting"),
+  computeTypePercentage(pokemonList, "rock")
+];
 
+const chartElement = document.getElementById("typesGraph");
+nuevoGrafico(chartElement, typePercentages);
+const showGraphLink = document.getElementById("show-graph");
+const graphContainer = document.getElementById("graphContainer");
+const mainSection = document.getElementById("todos");
+graphContainer.style.display = "none";
+showGraphLink.addEventListener("click", () => {
+  if (graphContainer.style.display === "none") {
+    ((graphContainer.style.display = "block") && (mainSection.style.display = "none"))  } else {
+    ((graphContainer.style.display = "none") && (mainSection.style.display = "block"))
+  }
+});
 
-console.log(data);
