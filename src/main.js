@@ -1,5 +1,7 @@
 import data from "./data/pokemon/pokemon.js"; //Trae la base de datos de pokemon
 import { filterByType, searchPokemonByName, sortData } from "./data.js";
+import Chart from 'chart.js/auto'
+
 const pokemonList = data.pokemon;
 
 
@@ -141,6 +143,14 @@ function mostrarModal(poke) {
   });
   modal.style.display = "flex";
 }
+
+nuevoGrafico(
+  document.getElementById('typesGraph'),
+  {
+    type:
+  }
+)
+
 
 
 console.log(data);
