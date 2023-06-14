@@ -259,11 +259,13 @@ main {
   flex-direction: column; /* Apilar los elementos verticalmente */
 }
 
+
 @media only screen and (max-width: 600px) {
   .pokemonModulos {
   width: 85%; /* Cambia el ancho al 90% para adaptarse a dispositivos móviles */
   max-width: 600px; /* Agrega un ancho máximo para evitar que se vuelva demasiado grande */
   margin: 0 auto; /* Centra horizontalmente el modal */
+  max-height: 75%;
 }
 }
 
